@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head'); %>
+  </head>
+
+  <body>
+
+    <%- include('includes/header'); %>
+
+    <div class="container">
+
+      <%- include('includes/menu'); %>
+
+      <div class="title">
+        Transfer
+        <span>Help</span>
+      </div>
+
+      <div class="multi-form-steps">
+        <ul class="step-4">
+          <li class="active">
+            <span class="step-text">1. <span class="step-text-op">Details</span></span>
+            <span class="arrow-background">
+              <span class="arrow-wrapper">
+                <span class="arrow"></span>
+              </span>
+            </span>
+          </li><li>
+            <span class="step-text">2. <span class="step-text-op">Review</span></span>
+            <span class="arrow-background">
+              <span class="arrow-wrapper">
+                <span class="arrow"></span>
+              </span>
+            </span>
+          </li><li>
+            <span class="step-text">3. <span class="step-text-op">Sign</span></span>
+            <span class="arrow-background">
+              <span class="arrow-wrapper">
+                <span class="arrow"></span>
+              </span>
+            </span>
+          </li><li class="last">
+            <span class="step-text">4. <span class="step-text-op">Status</span></span>
+            <span class="arrow-background">
+              <span class="arrow-wrapper">
+                <span class="arrow"></span>
+              </span>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div id="step-desc">Step 1: Complete form below to provide the transfer details.</div>
+
+      <div id="transfer-form">
+
+        <form id="sign-form">
+
+          <table>
+
+            <tr>
+              <td>
+                From Account
+              </td>
+              <td id="from-v">
+                <select id="from-select" class="select-css">
+                  <option value="4390 045 3731 (Credit)">4390 045 3731 (Credit)</option>
+                  <option value="4390 046 7817 (Credit)">4390 046 7817 (Credit)</option>
+                  <option value="7686 36 726 (Savings)">7686 36 726 (Savings)</option>
+                  <option value="7683 67 836 (Savings)">7683 67 836 (Savings)</option>
+                </select>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                To Account
+              </td>
+              <td id="to-v">
+                <select id="to-select"  class="select-css">
+                  <option value="7686 36 726 (Savings)">7686 36 726 (Savings)</option>
+                  <option value="7683 67 836 (Savings)">7683 67 836 (Savings)</option>
+                  <option value="4390 045 3731 (Credit)">4390 045 3731 (Credit)</option>
+                  <option value="4390 046 7817 (Credit)">4390 046 7817 (Credit)</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                Amount (USD)
+              </td>
+              <td id="amount-v">
+                <input class="transfer-input" id="amount-input"
+                type="text" size="20rem"
+                pattern="[0-9]+[.]?[0-9]*" required/>
+              </td>
+            </tr>
+
+          </table>
+        </form>
+      </div>
+
+      <div id="transfer-sign" class="hidden">
+        <div id="out">
+          <p>A signature request has been sent to your mobile.</p>
+          <img />
+        </div>
+      </div>
+
+      <div id="buttons">
+        <button class="cancel">Cancel</button>
+        <button class="next" form="sign-form">Next</button>
+      </div>
+
+    </div>
+
+    <%- include('includes/footer'); %>
+  </body>
+  <script src="/common.js"></script>
+  <script src="/transfer.js"></script>
+
+</html>
+

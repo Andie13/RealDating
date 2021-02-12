@@ -1,0 +1,71 @@
+version: '3'
+
+services:
+  fido:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # apply name to image
+    image: fido
+    #apply name to container
+    container_name: fido
+    restart: unless-stopped
+    # enable communication between the application and web server containers, 
+    # we will also add a bridge network on the same Docker daemon host
+    networks:
+      - app-network
+  webserver:
+    image: nginx:mainline-alpine
+    container_name: webserver
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - web-root:/var/www/html
+      - ./nginx-conf:/etc/nginx/conf.d
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - dhparam:/etc/ssl/certs
+    depends_on:
+      - fido
+    networks:
+      - app-network
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - web-root:/var/www/html
+    depends_on:
+      - webserver
+    command: certonly --webroot --webroot-path=/var/www/html --email akram.dhiabi@amaris.com --agree-tos --no-eff-email --force-renewal -d fido.dbpdemo.com 
+volumes:
+  certbot-etc:
+    driver: local
+    driver_opts:
+      type: none
+      #mount the views directory on the host, which contains our application’s static assets, to the volume at runtime
+      device: /home/fido/idcfido/certbot-etc/
+      o: bind
+  certbot-var:
+  web-root:
+    driver: local
+    driver_opts:
+      type: none
+      #mount the views directory on the host, which contains our application’s static assets, to the volume at runtime
+      device: /home/fido/idcfido/views/
+      o: bind
+  dhparam:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/fido/idcfido/dhparam/
+      o: bind
+networks:
+  app-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.11.1/22

@@ -1,0 +1,28 @@
+
+
+<div class="title">
+  <p>Welcome to your internet banking</p>
+  <span class="user" title="<%=userid%>"><%=username%></span>
+</div>
+
+<nav class="navbar">
+  <!-- div class="nav-logo">Your Account</div-->
+  <ul class="navmenu">
+    <li><a href="/account">
+      <i class="material-icons">home</i>
+      <span class="fullscreen">Home</span>
+    </a></li>
+    <li><a href="/transfer">
+      <span class="material-icons">send</span>
+      <span class="fullscreen">Transfers</span>
+    </a></li>
+    <li><a href="/authentication">
+      <span class="material-icons">vpn_key</span>
+      <span class="fullscreen">Authentication</span>
+    </a></li>
+    <li><a onclick="javascript:window.location='/logout'" href="#">
+      <span class="material-icons">exit_to_app</span>
+      <span class="fullscreen">Logout</span>
+    </a></li>
+  </ul>
+</nav>

@@ -1,0 +1,33 @@
+{
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "idcfido",
+  "version": "0.0.1",
+  "description": "IdCloud FIDO demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "eval $(egrep -v '^#' .env | grep -v -e '^$' | sed 's/^/export /') && node server.js",
+    "//start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "ejs": "^3.1.5",
+    "lowdb": "1.x",
+    "uuid": "^8.3.1",
+    "nodemailer": "",
+    "express-session": "1.17.1",
+    "memorystore": "*"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/idcfido"
+  },
+  "license": "MIT",
+  "keywords": [
+    "idcloud",
+    "fido"
+  ]
+}

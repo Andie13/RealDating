@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head'); %>
+  </head>
+
+  <body class="index">
+    <div class="box-container">
+      <div class="box">
+        <%- include('includes/loginheader'); %>
+
+        <div id="formdiv">
+          <p class="login">
+            Enter your email address to access your account.
+          </p>
+          <p class="signup">
+            Signup to create or reset your account.<br>
+            You will get a registration link by email.
+          </p>
+
+          <form>
+            <input
+              id="email"
+              type="email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              maxlength="100"
+              required
+              placeholder="Your email address"
+            />
+            <button id="loginbut" class="login">Login</button>
+            <button id="signupbut" class="signup">Signup</button>
+          </form>
+          <div class="formfooter">
+            <span class="login">
+              <a id="toggle-signup" class="toggle" href="#">Not registered? Lost device?</a>
+            </span>
+            <span class="signup">
+              <a id="toggle-login" class="toggle" href="#">Already registered?</a>
+            </span>
+            <span class="privacy">
+              <a href="/privacy">Privacy notice</a>
+            </span>
+          </div>
+        </div>
+        <div id="out"></div>
+      </div>
+    </div>
+
+    <%- include('includes/footer'); %>
+  </body>
+  <script src="/common.js"></script>
+  <script src="/script.js"></script>
+</html>

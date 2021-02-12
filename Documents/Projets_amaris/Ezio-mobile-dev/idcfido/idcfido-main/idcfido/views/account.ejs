@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head'); %>
+  </head>
+
+  <body>
+
+    <%- include('includes/header'); %>
+    <div class="container">
+
+      <%- include('includes/menu'); %>
+
+      <div class="title">
+        Account summary
+        <span>Help</span>
+      </div>
+
+      <div class="acttype">
+        Credit Accounts
+      </div>
+
+      <ul class="responsive-table">
+        <li class="table-header">
+          <div class="col col-1">Account number</div>
+          <div class="col col-2">Type</div>
+          <div class="col col-3">Currency</div>
+          <div class="col col-4">Balance</div>
+        </li>
+        <li class="table-row">
+          <div class="col col-1" data-label="Account number">4390 045 3731</div>
+          <div class="col col-2" data-label="Type">Credit</div>
+          <div class="col col-3" data-label="Currency">USD</div>
+          <div class="col col-4" data-label="Balance">2586.7</div>
+        </li>
+        <li class="table-row">
+          <div class="col col-1" data-label="Account number">4390 046 7817</div>
+          <div class="col col-2" data-label="Type">Credit</div>
+          <div class="col col-3" data-label="Currency">USD</div>
+          <div class="col col-4" data-label="Balance">3154</div>
+        </li>
+      </ul>
+
+      <div class="acttype">
+        Saving Accounts
+      </div>
+
+      <ul class="responsive-table">
+        <li class="table-header">
+          <div class="col col-1">Account number</div>
+          <div class="col col-2">Type</div>
+          <div class="col col-3">Currency</div>
+          <div class="col col-4">Balance</div>
+        </li>
+        <li class="table-row">
+          <div class="col col-1" data-label="Account number">7686 36 726</div>
+          <div class="col col-2" data-label="Type">Savings</div>
+          <div class="col col-3" data-label="Currency">USD</div>
+          <div class="col col-4" data-label="Balance">5430</div>
+        </li>
+        <li class="table-row">
+          <div class="col col-1" data-label="Account number">7683 67 836</div>
+          <div class="col col-2" data-label="Type">Savings</div>
+          <div class="col col-3" data-label="Currency">USD</div>
+          <div class="col col-4" data-label="Balance">2000</div>
+        </li>
+      </ul>
+
+    </div>
+
+    <%- include('includes/footer'); %>
+  </body>
+  <script src="/common.js"></script>
+
+</html>
+
